@@ -285,10 +285,11 @@
     const totalQuestions = 35;
     const questionTime = 45000; // 45 secondes pour répondre à une question
     const correctionTime = 3000; // 3 secondes pour afficher la correction
+    let questionTimer;
 
     function startQuiz() {
         showQuestion(currentQuestion);
-        setTimeout(nextQuestion, questionTime);
+        questionTimer = setTimeout(nextQuestion, questionTime);
     }
 
     function showQuestion(index) {
@@ -302,6 +303,7 @@
     }
 
     function checkAnswer(questionIndex, correctAnswer) {
+        clearTimeout(questionTimer); // Arrêter le timer de la question actuelle
         const selectedAnswer = event.target.textContent.trim().charAt(0);
         const correctionMessage = document.createElement('div');
         correctionMessage.id = 'correctionMessage';
@@ -322,7 +324,7 @@
         currentQuestion++;
         if (currentQuestion < totalQuestions) {
             showQuestion(currentQuestion);
-            setTimeout(nextQuestion, questionTime);
+            questionTimer = setTimeout(nextQuestion, questionTime); // Redémarrer le timer pour la nouvelle question
         } else {
             showResults();
         }
@@ -330,7 +332,7 @@
 
     function showResults() {
         document.querySelector('#score').textContent = score;
-        document.querySelector('#note').textContent = (score / totalQuestions) * 20;
+        document.querySelector('#note').textContent = ((score / totalQuestions) * 20).toFixed(2); // Afficher la note sur 20 avec 2 décimales
         document.querySelector('#result').classList.add('active');
     }
 
