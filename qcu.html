@@ -316,7 +316,11 @@
         document.body.appendChild(correctionMessage);
         setTimeout(() => {
             document.body.removeChild(correctionMessage);
-            nextQuestion();
+            if (currentQuestion < totalQuestions) {
+                questionTimer = setTimeout(nextQuestion, questionTime - correctionTime); // Redémarrer le timer pour la nouvelle question
+            } else {
+                showResults();
+            }
         }, correctionTime);
     }
 
