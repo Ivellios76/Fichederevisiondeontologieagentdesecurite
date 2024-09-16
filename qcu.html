@@ -271,7 +271,7 @@
 <!-- Ajoute ici les questions -->
         </div>
 
-        <div id="result" class="question">
+<div id="result" class="question">
     <h2>Résultats</h2>
     <p>Votre score : <span id="score"></span>/35</p>
     <p>Votre note : <span id="note"></span>/20</p>
@@ -302,7 +302,7 @@
         });
     }
 
-    function checkAnswer(questionIndex, correctAnswer) {
+    function checkAnswer(correctAnswer) {
         clearTimeout(questionTimer); // Arrêter le timer de la question actuelle
         const selectedAnswer = event.target.textContent.trim().charAt(0);
         const correctionMessage = document.createElement('div');
@@ -316,11 +316,7 @@
         document.body.appendChild(correctionMessage);
         setTimeout(() => {
             document.body.removeChild(correctionMessage);
-            if (currentQuestion < totalQuestions) {
-                questionTimer = setTimeout(nextQuestion, questionTime - correctionTime); // Redémarrer le timer pour la nouvelle question
-            } else {
-                showResults();
-            }
+            nextQuestion();
         }, correctionTime);
     }
 
