@@ -272,11 +272,6 @@
         </div>
 
         <div id="result" class="question">
-            <h2>Résultats</h2>
-            <p>Votre score : <span id="score"></span>/35</p>
-            <p>Votre note : <span id="note"></span>/20</p>
-        </div>
-    <div id="result" class="question">
     <h2>Résultats</h2>
     <p>Votre score : <span id="score"></span>/35</p>
     <p>Votre note : <span id="note"></span>/20</p>
@@ -288,9 +283,12 @@
     let currentQuestion = 0;
     let score = 0;
     const totalQuestions = 35;
+    const questionTime = 45000; // 45 secondes pour répondre à une question
+    const correctionTime = 3000; // 3 secondes pour afficher la correction
 
     function startQuiz() {
         showQuestion(currentQuestion);
+        setTimeout(nextQuestion, questionTime);
     }
 
     function showQuestion(index) {
@@ -305,20 +303,29 @@
 
     function checkAnswer(questionIndex, correctAnswer) {
         const selectedAnswer = event.target.textContent.trim().charAt(0);
+        const correctionMessage = document.createElement('div');
+        correctionMessage.id = 'correctionMessage';
         if (selectedAnswer === correctAnswer) {
             score++;
-            alert('Bonne réponse !');
+            correctionMessage.textContent = 'Bonne réponse !';
         } else {
-            alert('Mauvaise réponse.');
+            correctionMessage.textContent = 'Mauvaise réponse.';
         }
+        document.body.appendChild(correctionMessage);
         setTimeout(() => {
-            currentQuestion++;
-            if (currentQuestion < totalQuestions) {
-                showQuestion(currentQuestion);
-            } else {
-                showResults();
-            }
-        }, 2000);
+            document.body.removeChild(correctionMessage);
+            nextQuestion();
+        }, correctionTime);
+    }
+
+    function nextQuestion() {
+        currentQuestion++;
+        if (currentQuestion < totalQuestions) {
+            showQuestion(currentQuestion);
+            setTimeout(nextQuestion, questionTime);
+        } else {
+            showResults();
+        }
     }
 
     function showResults() {
