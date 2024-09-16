@@ -268,12 +268,11 @@
     <button onclick="checkAnswer(5, 'D')">D) Reflète le professionnalisme et l'autorité</button>
 </div>
        
-<!-- Ajoute ici les questions -->
         </div>
 
 <div id="result" class="question">
     <h2>Résultats</h2>
-    <p>Votre score : <span id="score"></span>/35</p>
+    <p>Votre score : <span id="score"></span>/25</p>
     <p>Votre note : <span id="note"></span>/20</p>
 </div>
 
@@ -282,7 +281,7 @@
 <script>
     let currentQuestion = 0;
     let score = 0;
-    const totalQuestions = 35;
+    const totalQuestions = 25;
     const questionTime = 45000; // 45 secondes pour répondre à une question
     const correctionTime = 3000; // 3 secondes pour afficher la correction
     let questionTimer;
@@ -331,7 +330,7 @@
     }
 
     function showResults() {
-        document.querySelector('#score').textContent = score;
+        document.querySelector('#score').textContent = `${score}/${totalQuestions}`;
         document.querySelector('#note').textContent = ((score / totalQuestions) * 20).toFixed(2); // Afficher la note sur 20 avec 2 décimales
         document.querySelector('#result').classList.add('active');
     }
