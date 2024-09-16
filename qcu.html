@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCU - Déontologie des Agents de Sécurité</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        button {
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px; /* Ajoute cette ligne pour espacer les boutons */
+        }
+        button:hover {
+            background-color: #004494;
+        }
+        .question {
+            display: none;
+        }
+        .question.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QCU - Déontologie des Agents de Sécurité</h1>
+        
+        <div id="quiz">
+           <div class="question" id="question1">
+    <h2>Question 1</h2>
+    <p>À qui s'applique le code de déontologie des agents de sécurité ?</p>
+    <button onclick="checkAnswer(1, 'C')">A) Aux dirigeants uniquement</button>
+    <button onclick="checkAnswer(1, 'C')">B) Aux salariés uniquement</button>
+    <button onclick="checkAnswer(1, 'C')">C) À toutes les personnes physiques et morales exerçant des activités privées de sécurité</button>
+    <button onclick="checkAnswer(1, 'C')">D) Aux stagiaires uniquement</button>
+</div>
+
+    <div class="question" id="question2">
+        <h2>Question 2</h2>
+        <p>Quelles sont les conséquences d'un manquement aux devoirs définis par le code de déontologie ?</p>
+        <button onclick="checkAnswer(2, 'B')">A) Aucune conséquence</button>
+        <button onclick="checkAnswer(2, 'B')">B) Sanctions disciplinaires, administratives et pénales</button>
+        <button onclick="checkAnswer(2, 'B')">C) Simple avertissement</button>
+        <button onclick="checkAnswer(2, 'B')">D) Suspension temporaire</button>
+    </div>
+
+    <div class="question" id="question3">
+        <h2>Question 3</h2>
+        <p>Où doit être affiché le code de déontologie ?</p>
+        <button onclick="checkAnswer(3, 'B')">A) Dans les bureaux de la direction uniquement</button>
+        <button onclick="checkAnswer(3, 'B')">B) Dans toutes les entreprises de sécurité privée</button>
+        <button onclick="checkAnswer(3, 'B')">C) Chez chaque salarié</button>
+        <button onclick="checkAnswer(3, 'B')">D) Dans les locaux de la police</button>
+    </div>
+
+    <div class="question" id="question4">
+        <h2>Question 4</h2>
+        <p>Que doivent respecter les acteurs de la sécurité privée selon l'article R631-4 ?</p>
+        <button onclick="checkAnswer(4, 'B')">A) Les lois et règlements en vigueur uniquement</button>
+        <button onclick="checkAnswer(4, 'B')">B) La Déclaration des droits de l'homme et du citoyen, la Constitution, et l'ensemble des lois et règlements en vigueur</button>
+        <button onclick="checkAnswer(4, 'B')">C) Les consignes de leur employeur uniquement</button>
+        <button onclick="checkAnswer(4, 'B')">D) Les règles internes de l'entreprise uniquement</button>
+    </div>
+
+    <div class="question" id="question5">
+        <h2>Question 5</h2>
+        <p>Quels sont les principes que doivent respecter les acteurs de la sécurité privée selon l'article R631-5 ?</p>
+        <button onclick="checkAnswer(5, 'A')">A) Honnêteté, loyauté et intégrité</button>
+        <button onclick="checkAnswer(5, 'A')">B) Discrétion et neutralité</button>
+        <button onclick="checkAnswer(5, 'A')">C) Rapidité et efficacité</button>
+        <button onclick="checkAnswer(5, 'A')">D) Courtoisie et politesse</button>
+    </div>
+
+    <div class="question" id="question6">
+        <h2>Question 6</h2>
+        <p>À quoi sont tenus les acteurs de la sécurité privée selon l'article R631-6 ?</p>
+        <button onclick="checkAnswer(6, 'B')">A) Respecter les horaires de travail</button>
+        <button onclick="checkAnswer(6, 'B')">B) Protéger la confidentialité des informations</button>
+        <button onclick="checkAnswer(6, 'B')">C) Porter un uniforme</button>
+        <button onclick="checkAnswer(6, 'B')">D) Signaler les incidents</button>
+    </div>
+
+    <div class="question" id="question7">
+        <h2>Question 7</h2>
+        <p>Qui est responsable de la mise en œuvre du code de déontologie au sein de l'entreprise selon l'article R631-15 ?</p>
+        <button onclick="checkAnswer(7, 'B')">A) Les salariés</button>
+        <button onclick="checkAnswer(7, 'B')">B) Les dirigeants</button>
+        <button onclick="checkAnswer(7, 'B')">C) Les clients</button>
+        <button onclick="checkAnswer(7, 'B')">D) Les stagiaires</button>
+    </div>
+
+    <div class="question" id="question8">
+        <h2>Question 8</h2>
+        <p>Que doivent faire les dirigeants selon l'article R631-16 ?</p>
+        <button onclick="checkAnswer(8, 'A')">A) Veiller à ce que leurs employés reçoivent une formation adéquate sur les règles déontologiques</button>
+        <button onclick="checkAnswer(8, 'A')">B) Superviser les opérations de sécurité</button>
+        <button onclick="checkAnswer(8, 'A')">C) Rédiger des rapports mensuels</button>
+        <button onclick="checkAnswer(8, 'A')">D) Organiser des réunions hebdomadaires</button>
+    </div>
+
+    <div class="question" id="question9">
+        <h2>Question 9</h2>
+        <p>Que doivent faire les salariés selon l'article R631-25 ?</p>
+        <button onclick="checkAnswer(9, 'A')">A) Informer leur employeur de toute modification de leur situation professionnelle ou personnelle</button>
+        <button onclick="checkAnswer(9, 'A')">B) Signaler les incidents mineurs</button>
+        <button onclick="checkAnswer(9, 'A')">C) Porter un uniforme</button>
+        <button onclick="checkAnswer(9, 'A')">D) Respecter les horaires de travail</button>
+    </div>
+
+    <div class="question" id="question10">
+        <h2>Question 10</h2>
+        <p>Quand l'usage de la force est-il autorisé selon l'article R631-28 ?</p>
+        <button onclick="checkAnswer(10, 'B')">A) En cas de légitime défense uniquement</button>
+        <button onclick="checkAnswer(10, 'B')">B) En cas de stricte nécessité et de légitime défense</button>
+        <button onclick="checkAnswer(10, 'B')">C) Pour faire respecter les consignes de l'entreprise</button>
+        <button onclick="checkAnswer(10, 'B')">D) Pour dissuader les intrus</button>
+    </div>
+
+    <div class="question" id="question11">
+        <h2>Question 11</h2>
+        <p>Comment doivent être exercées les missions de contrôle et de surveillance selon l'article R631-29 ?</p>
+        <button onclick="checkAnswer(11, 'B')">A) Avec discrétion</button>
+        <button onclick="checkAnswer(11, 'B')">B) Dans le respect des droits et libertés des personnes</button>
+        <button onclick="checkAnswer(11, 'B')">C) Avec rapidité</button>
+        <button onclick="checkAnswer(11, 'B')">D) Avec fermeté</button>
+    </div>
+
+    <div class="question" id="question12">
+        <h2>Question 12</h2>
+        <p>Que doivent respecter les agents de sécurité selon l'article R631-30 ?</p>
+        <button onclick="checkAnswer(12, 'B')">A) Les consignes de leur employeur uniquement</button>
+        <button onclick="checkAnswer(12, 'B')">B) Les droits et libertés des personnes</button>
+        <button onclick="checkAnswer(12, 'B')">C) Les horaires de travail</button>
+        <button onclick="checkAnswer(12, 'B')">D) Les règles internes de l'entreprise</button>
+    </div>
+
+    <div class="question" id="question13">
+        <h2>Question 13</h2>
+        <p>Quand les agents de sécurité peuvent-ils recourir à la violence selon l'article R631-31 ?</p>
+        <button onclick="checkAnswer(13, 'A')">A) En cas de légitime défense ou de stricte nécessité</button>
+        <button onclick="checkAnswer(13, 'A')">B) Pour dissuader les intrus</button>
+        <button onclick="checkAnswer(13, 'A')">C) Pour faire respecter les consignes de l'entreprise</button>
+        <button onclick="checkAnswer(13, 'A')">D) En cas de conflit avec un collègue</button>
+    </div>
+
+    <div class="question" id="question14">
+        <h2>Question 14</h2>
+        <p>Que doivent faire les agents de sécurité selon l'article R631-32 ?</p>
+        <button onclick="checkAnswer(14, 'A')">A) Suivre une formation continue</button>
+        <button onclick="checkAnswer(14, 'A')">B) Porter un uniforme</button>
+        <button onclick="checkAnswer(14, 'A')">C) Signaler les incidents</button>
+        <button onclick="checkAnswer(14, 'A')">D) Respecter les horaires de travail</button>
+    </div>
+
+    <div class="question" id="question15">
+        <h2>Question 15</h2>
+        <p>Que doivent mettre en place les entreprises de sécurité privée selon l'article R631-33 ?</p>
+        <button onclick="checkAnswer(15, 'A')">A) Des dispositifs de contrôle et d'évaluation de leurs agents</button>
+        <button onclick="checkAnswer(15, 'A')">B) Des réunions hebdomadaires</button>
+        <button onclick="checkAnswer(15, 'A')">C) Des rapports mensuels</button>
+        <button onclick="checkAnswer(15, 'A')">D) Des formations internes</button>
+    </div>
+
+    <div class="question" id="question16">
+        <h2>Question 16</h2>
+        <p>Quel est l'objectif principal du code de déontologie des agents de sécurité ?</p>
+        <button onclick="checkAnswer(16, 'B')">A) Protéger les intérêts de l'entreprise</button>
+        <button onclick="checkAnswer(16, 'B')">B) Régir la conduite des professionnels de la sécurité privée</button>
+        <button onclick="checkAnswer(16, 'B')">C) Assurer la rentabilité de l'entreprise</button>
+        <button onclick="checkAnswer(16, 'B')">D) Faciliter la communication interne</button>
+    </div>
+
+    <div class="question" id="question17">
+        <h2>Question 17</h2>
+        <p>Qui doit recevoir une copie du code de déontologie à son embauche ?</p>
+        <button onclick="checkAnswer(17, 'C')">A) Les dirigeants uniquement</button>
+        <button onclick="checkAnswer(17, 'C')">B) Les salariés uniquement</button>
+        <button onclick="checkAnswer(17, 'C')">C) Tous les employés</button>
+        <button onclick="checkAnswer(17, 'C')">D) Les clients</button>
+    </div>
+
+    <div class="question" id="question18">
+        <h2>Question 18</h2>
+        <p>Quel est le rôle des dirigeants en matière de formation selon l'article R631-16 ?</p>
+        <button onclick="checkAnswer(18, 'C')">A) Organiser des réunions hebdomadaires</button>
+        <button onclick="checkAnswer(18, 'C')">B) Superviser les opérations de sécurité</button>
+        <button onclick="checkAnswer(18, 'C')">C) Veiller à ce que leurs employés reçoivent une formation adéquate sur les règles déontologiques</button>
+        <button onclick="checkAnswer(18, 'C')">D) Rédiger des rapports mensuels</button>
+    </div>
+
+    <div class="question" id="question19">
+        <h2>Question 19</h2>
+        <p>Que doivent faire les salariés en cas de modification de leur situation professionnelle ou personnelle selon l'article R631-25 ?</p>
+        <button onclick="checkAnswer(19, 'A')">A) Informer leur employeur sans délai</button>
+        <button onclick="checkAnswer(19, 'A')">B) Signaler les incidents mineurs</button>
+        <button onclick="checkAnswer(19, 'A')">C) Porter un uniforme</button>
+        <button onclick="checkAnswer(19, 'A')">D) Respecter les horaires de travail</button>
+    </div>
+
+    <div class="question" id="question20">
+        <h2>Question 20</h2>
+        <p>Quel est le principe fondamental de l'article R631-4 ?</p>
+        <button onclick="checkAnswer(20, 'A')">A) Respect des lois et règlements en vigueur</button>
+        <button onclick="checkAnswer(20, 'A')">B) Discrétion et neutralité</button>
+        <button onclick="checkAnswer(20, 'A')">C) Rapidité et efficacité</button>
+        <button onclick="checkAnswer(20, 'A')">D) Courtoisie et politesse</button>
+    </div>
+
+    <div class="question" id="question21">
+        <h2>Question 21</h2>
+        <p>Que doivent protéger les acteurs de la sécurité privée selon l'article R631-6 ?</p>
+        <button onclick="checkAnswer(21, 'A')">A) La confidentialité des informations</button>
+        <button onclick="checkAnswer(21, 'A')">B) Les horaires de travail</button>
+        <button onclick="checkAnswer(21, 'A')">C) Les consignes de l'entreprise</button>
+        <button onclick="checkAnswer(21, 'A')">D) Les uniformes</button>
+    </div>
+
+    <div class="question" id="question22">
+        <h2>Question 22</h2>
+        <p>Qui est responsable de la mise en œuvre du code de déontologie selon l'article R631-15 ?</p>
+        <button onclick="checkAnswer(22, 'B')">A) Les salariés</button>
+        <button onclick="checkAnswer(22, 'B')">B) Les dirigeants</button>
+        <button onclick="checkAnswer(22, 'B')">C) Les clients</button>
+        <button onclick="checkAnswer(22, 'B')">D) Les stagiaires</button>
+    </div>
+
+    <div class="question" id="question23">
+        <h2>Question 23</h2>
+        <p>Quand l'usage de la force est-il autorisé selon l'article R631-28 ?</p>
+        <button onclick="checkAnswer(23, 'A')">A) En cas de légitime défense et de stricte nécessité</button>
+        <button onclick="checkAnswer(23, 'A')">B) Pour faire respecter les consignes de l'entreprise</button>
+        <button onclick="checkAnswer(23, 'A')">C) Pour dissuader les intrus</button>
+        <button onclick="checkAnswer(23, 'A')">D) En cas de conflit avec un collègue</button>
+    </div>
+
+    <div class="question" id="question24">
+        <h2>Question 24</h2>
+        <p>Comment doivent être exercées les missions de contrôle et de surveillance selon l'article R631-29 ?</p>
+        <button onclick="checkAnswer(24, 'B')">A) Avec discrétion</button>
+        <button onclick="checkAnswer(24, 'B')">B) Dans le respect des droits et libertés des personnes</button>
+        <button onclick="checkAnswer(24, 'B')">C) Avec rapidité</button>
+        <button onclick="checkAnswer(24, 'B')">D) Avec fermeté</button>
+    </div>
+
+    <div class="question" id="question25">
+        <h2>Question 25</h2>
+        <p>Que doivent respecter les agents de sécurité selon l'article R631-30 ?</p>
+        <button onclick="checkAnswer(25, 'B')">A) Les consignes de leur employeur uniquement</button>
+        <button onclick="checkAnswer(25, 'B')">B) Les droits et libertés des personnes</button>
+        <button onclick="checkAnswer(25, 'B')">C) Les horaires de travail</button>
+        <button onclick="checkAnswer(25, 'B')">D) Les règles internes de l'entreprise</button>
+    </div>
+
+    <div class="question" id="question26">
+        <h2>Question 26</h2>
+        <p>Quand les agents de sécurité peuvent-ils recourir à la violence selon l'article R631-31 ?</p>
+        <button onclick="checkAnswer(26, 'A')">A) En cas de légitime défense ou de stricte nécessité</button>
+        <button onclick="checkAnswer(26, 'A')">B) Pour dissuader les intrus</button>
+        <button onclick="checkAnswer(26, 'A')">C) Pour faire respecter les consignes de l'entreprise</button>
+        <button onclick="checkAnswer(26, 'A')">D) En cas de conflit avec un collègue</button>
+    </div>
+
+    <div class="question" id="question27">
+        <h2>Question 27</h2>
+        <p>Que doivent faire les agents de sécurité selon l'article R631-32 ?</p>
+        <button onclick="checkAnswer(27, 'A')">A) Suivre une formation continue</button>
+        <button onclick="checkAnswer(27, 'A')">B) Porter un uniforme</button>
+        <button onclick="checkAnswer(27, 'A')">C) Signaler les incidents</button>
+        <button onclick="checkAnswer(27, 'A')">D) Respecter les horaires de travail</button>
+    </div>
+
+    <div class="question" id="question28">
+        <h2>Question 28</h2>
+        <p>Que doivent mettre en place les entreprises de sécurité privée selon l'article R631-33 ?</p>
+        <button onclick="checkAnswer(28, 'A')">A) Des dispositifs de contrôle et d'évaluation de leurs agents</button>
+        <button onclick="checkAnswer(28, 'A')">B) Des réunions hebdomadaires</button>
+        <button onclick="checkAnswer(28, 'A')">C) Des rapports mensuels</button>
+        <button onclick="checkAnswer(28, 'A')">D) Des formations internes</button>
+    </div>
+
+    <div class="question" id="question29">
+        <h2>Question 29</h2>
+        <p>Quel est l'objectif principal du code de déontologie des agents de sécurité ?</p>
+        <button onclick="checkAnswer(29, 'B')">A) Protéger les intérêts de l'entreprise</button>
+        <button onclick="checkAnswer(29, 'B')">B) Régir la conduite des professionnels de la sécurité privée</button>
+        <button onclick="checkAnswer(29, 'B')">C) Assurer la rentabilité de l'entreprise</button>
+        <button onclick="checkAnswer(29, 'B')">D) Faciliter la communication interne</button>
+    </div>
+
+    <div class="question" id="question30">
+        <h2>Question 30</h2>
+        <p>Qui doit recevoir une copie du code de déontologie à son embauche ?</p>
+        <button onclick="checkAnswer(30, 'C')">A) Les dirigeants uniquement</button>
+        <button onclick="checkAnswer(30, 'C')">B) Les salariés uniquement</button>
+        <button onclick="checkAnswer(30, 'C')">C) Tous les employés</button>
+        <button onclick="checkAnswer(30, 'C')">D) Les clients</button>
+    </div>
+
+    <div class="question" id="question31">
+        <h2>Question 31</h2>
+        <p>Quel est le rôle des dirigeants en matière de formation selon l'article R631-16 ?</p>
+        <button onclick="checkAnswer(31, 'C')">A) Organiser des réunions hebdomadaires</button>
+        <button onclick="checkAnswer(31, 'C')">B) Superviser les opérations de sécurité</button>
+        <button onclick="checkAnswer(31, 'C')">C) Veiller à ce que leurs employés reçoivent une formation adéquate sur les règles déontologiques</button>
+        <button onclick="checkAnswer(31, 'C')">D) Rédiger des rapports mensuels</button>
+    </div>
+
+    <div class="question" id="question32">
+        <h2>Question 32</h2>
+        <p>Que doivent faire les salariés en cas de modification de leur situation professionnelle ou personnelle selon l'article R631-25 ?</p>
+        <button onclick="checkAnswer(32, 'A')">A) Informer leur employeur sans délai</button>
+        <button onclick="checkAnswer(32, 'A')">B) Signaler les incidents mineurs</button>
+        <button onclick="checkAnswer(32, 'A')">C) Porter un uniforme</button>
+        <button onclick="checkAnswer(32, 'A')">D) Respecter les horaires de travail</button>
+    </div>
+
+    <div class="question" id="question33">
+        <h2>Question 33</h2>
+        <p>Quel est le principe fondamental de l'article R631-4 ?</p>
+        <button onclick="checkAnswer(33, 'A')">A) Respect des lois et règlements en vigueur</button>
+        <button onclick="checkAnswer(33, 'A')">B) Discrétion et neutralité</button>
+        <button onclick="checkAnswer(33, 'A')">C) Rapidité et efficacité</button>
+        <button onclick="checkAnswer(33, 'A')">D) Courtoisie et politesse</button>
+    </div>
+
+    <div class="question" id="question34">
+        <h2>Question 34</h2>
+        <p>Que doivent protéger les acteurs de la sécurité privée selon l'article R631-6 ?</p>
+        <button onclick="checkAnswer(34, 'A')">A) La confidentialité des informations</button>
+        <button onclick="checkAnswer(34, 'A')">B) Les horaires de travail</button>
+        <button onclick="checkAnswer(34, 'A')">C) Les consignes de l'entreprise</button>
+        <button onclick="checkAnswer(34, 'A')">D) Les uniformes</button>
+    </div>
+
+    <div class="question" id="question35">
+        <h2>Question 35</h2>
+        <p>Qui est responsable de la mise en œuvre du code de déontologie selon l'article R631-15 ?</p>
+        <button onclick="checkAnswer(35, 'B')">A) Les salariés</button>
+        <button onclick="checkAnswer(35, 'B')">B) Les dirigeants</button>
+        <button onclick="checkAnswer(35, 'B')">C) Les clients</button>
+        <button onclick="checkAnswer(35, 'B')">D) Les stagiaires</button>
+    </div> <!-- Ajoute ici les questions -->
+        </div>
+
+        <div id="result" class="question">
+            <h2>Résultats</h2>
+            <p>Votre score : <span id="score"></span>/35</p>
+            <p>Votre note : <span id="note"></span>/20</p>
+        </div>
+    <div id="result" class="question">
+    <h2>Résultats</h2>
+    <p>Votre score : <span id="score"></span>/35</p>
+    <p>Votre note : <span id="note"></span>/20</p>
+</div>
+
+</div> <!-- Fermeture du div container -->
+
+<script>
+    let currentQuestion = 0;
+    let score = 0;
+    const totalQuestions = 35;
+
+    function startQuiz() {
+        showQuestion(currentQuestion);
+    }
+
+    function showQuestion(index) {
+        const questions = document.querySelectorAll('.question');
+        questions.forEach((question, i) => {
+            question.classList.remove('active');
+            if (i === index) {
+                question.classList.add('active');
+            }
+        });
+    }
+
+    function checkAnswer(questionIndex, correctAnswer) {
+        const selectedAnswer = event.target.textContent.trim().charAt(0);
+        if (selectedAnswer === correctAnswer) {
+            score++;
+            alert('Bonne réponse !');
+        } else {
+            alert('Mauvaise réponse.');
+        }
+        setTimeout(() => {
+            currentQuestion++;
+            if (currentQuestion < totalQuestions) {
+                showQuestion(currentQuestion);
+            } else {
+                showResults();
+            }
+        }, 2000);
+    }
+
+    function showResults() {
+        document.querySelector('#score').textContent = score;
+        document.querySelector('#note').textContent = (score / totalQuestions) * 20;
+        document.querySelector('#result').classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', startQuiz);
+</script>
+</body>
+</html>
